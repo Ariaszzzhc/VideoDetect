@@ -27,14 +27,13 @@ class Detector:
         self.__sess = tf.Session(graph=self.__graph)
         self.__min_score_thresh = .5
         self.__max_obj = 20
+        self.__label = ['N/A', '']
 
     def __del__(self):
         self.__sess.close()
         pass
 
     def detect_per_frame(self, frame):
-        # TODO: 色域转换
-
         objs_per_frame = []
 
         frame_np_expanded = np.expand_dims(frame, axis=0)
